@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineMatch — Movie Recommendations</title>
+  <meta name="description" content="Discover films you will love. Powered by KMP search, Bitmask DP genre scoring, and Edmonds-Karp max-flow ranking." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- Full-page gradient wave background -->
+  <canvas id="gradient-canvas"></canvas>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header-inner">
+      <a href="#" id="logo-home" class="logo">CineMatch</a>
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M13 13L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Search films..." autocomplete="off" spellcheck="false" />
+        <button class="search-clear" id="search-clear">&#10005;</button>
+        <div class="search-dropdown" id="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <!-- Hero -->
+      <section class="hero" id="hero-section">
+        <div class="hero-text">
+          <h1>Find your next<br><em>favourite film.</em></h1>
+          <p>Search any title and discover similar films you'll love based on genre and popularity.</p>
+        </div>
+      </section>
+
+      <!-- Detail Panel -->
+      <section id="detail-panel" class="detail-panel" style="display:none">
+        <button class="back-btn" id="back-btn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back
+        </button>
+        <div id="detail-card" class="detail-card"></div>
+        <div id="recs-section" class="recs-section">
+          <h2 class="section-heading">Recommended titles</h2>
+          <p class="recs-note" id="recs-sub"></p>
+          <div class="card-grid" id="recs-grid"></div>
+        </div>
+      </section>
+
+      <!-- Browse -->
+      <section id="browse-section">
+        <h2 class="section-heading">Popular titles</h2>
+        <div class="card-grid" id="top-grid"></div>
+      </section>
+
+      <!-- Search Results -->
+      <section id="search-section" style="display:none">
+        <h2 class="section-heading" id="search-results-title">Results</h2>
+        <div class="card-grid" id="search-grid"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="footer-brand">CineMatch</span>
+      <span>Built with Java Spring Boot &nbsp;&bull;&nbsp; Dataset: TMDB 5000</span>
+    </div>
+  </footer>
+
+  <div class="spinner-overlay" id="spinner"><div class="spinner"></div></div>
+
+  <script src="/js/gradient-wave.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
